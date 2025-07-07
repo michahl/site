@@ -18,7 +18,7 @@ const pages = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Page not found</title>
 
 	</head>
 	<body class="antialiased m-8">
@@ -38,7 +38,9 @@ const pages = [
 					}
 				</div>
 			</div>
-			<slot />
+			<div class="text-[0.85rem] leading-6 max-w-xl">
+                The page you are looking for does not exist. It may have been removed, had its name changed, or is temporarily unavailable.
+            </div>
 		</div>
 	</body>
 </html>
