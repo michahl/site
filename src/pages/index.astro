@@ -1,6 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const social = [
+	{
+		name: 'GitHub',
+		url: 'https://github.com/michahl',
+	},
+	{
+		name: 'BlueSky',
+		url: 'https://bsky.app/profile/michahl.com',
+	},
+	{
+		name: 'Twitter',
+		url: 'https://twitter.com/cht5m',
+	}
+]
+
+const email = 'cmichahl@gmail.com'
+
 const projects = [
 	{
 		name: 'nodal',
@@ -8,6 +25,45 @@ const projects = [
 		description: 'turn your questions into ai-generated graphs',
 		details: 'Visualize questions as expandable knowledge graphs using Sonar, with summaries, explanations, reasoning, and source links in each node.',
 	},
+]
+
+const blog = [
+	{
+		title: 'Blog',
+		url: '/blog',
+		description: 'A collection of articles on various topics. I write about software development, AI, and more.',
+		tags: ['blog', 'articles', 'writing'],
+	},
+	{
+		title: 'AI',
+		url: '/blog/ai',
+		description: 'Articles related to AI, including tutorials, insights, and discussions on the latest trends.',
+		tags: ['ai', 'artificial intelligence', 'machine learning'],
+	},
+	{
+		title: 'Software Development',
+		url: '/blog/software-development',
+		description: 'Posts about software development practices, tools, and technologies.',
+		tags: ['software development', 'programming', 'coding'],
+	},
+	{
+		title: 'Web Development',
+		url: '/blog/web-development',
+		description: 'Articles focused on web development, including frameworks, libraries, and best practices.',
+		tags: ['web development', 'frontend', 'backend'],
+	},
+	{
+		title: 'Tech',
+		url: '/blog/tech',
+		description: 'General technology articles covering a wide range of topics.',
+		tags: ['technology', 'tech', 'innovation'],
+	},
+	{
+		title: 'Personal',
+		url: '/blog/personal',
+		description: 'Personal reflections and experiences shared through blog posts.',
+		tags: ['personal', 'reflections', 'experiences'],
+	}
 
 ]
 ---
@@ -21,8 +77,26 @@ const projects = [
 			<p>Athens, Greece</p>
 		</section>
 
-		<section class="mt-14 flex flex-col gap-1 md:flex-row md:gap-10">
-			<span class="text-neutral-400">Projects</span>
+		<section class="mt-10 md:mt-14 flex flex-col gap-1 md:flex-row md:gap-10">
+			<span class="text-neutral-400 min-w-14">About</span>
+			<div class="leading-5">
+				<p>Contact me via <a href={`mailto:${email}`} class="underline underline-offset-2 decoration-dotted">email</a></p>
+				<div class="space-x-2">
+					{
+						social.map((item, i) => (
+							<span class="inline">
+								<a href={item.url} target="_blank" class="underline underline-offset-2 decoration-dotted">{item.name}</a>
+								{ social.length - 1 !== i && ', ' }
+							</span>
+						))
+					}
+				</div>
+			</div>
+
+		</section>
+
+		<section class="mt-10 md:mt-14 flex flex-col gap-1 md:flex-row md:gap-10">
+			<span class="text-neutral-400 min-w-14">Projects</span>
 			<div>
 				{
 					projects.map((project) => (
@@ -42,6 +116,38 @@ const projects = [
 				{ projects.length > 3 && (
 					<p class="text-neutral-400 text-[0.8rem]">
 						<a href="/projects" class="underline underline-offset-2 decoration-dotted">View</a> more projects.
+					</p>
+				)}
+			</div>
+		</section>
+
+		<section class="mt-10 md:mt-14 flex flex-col gap-1 md:flex-row md:gap-10">
+			<span class="text-neutral-400 min-w-14">Blog</span>
+			<div>
+				{
+					blog.map((post) => (
+						<div class="mb-4">
+							<div class="flex items-center gap-3">
+								<a href={post.url} class="underline underline-offset-2 decoration-dotted">{post.title}</a>
+								{ post.tags && post.tags.length > 0 && (
+									<div>
+										{
+											post.tags.map((tag) => (
+												<a href={`/blog/tags/${tag}`} class="inline-block bg-neutral-100/80 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-600 px-3 rounded-full text-[0.7rem] mr-1">
+													{tag}
+												</a>
+											)).slice(0, 3)
+										}
+									</div>
+								)}
+							</div>
+							<p class="text-neutral-400">{post.description}</p>
+						</div>
+					)).slice(0, 5)
+				}
+				{ blog.length > 5 && (
+					<p class="text-neutral-400 text-[0.8rem]">
+						<a href="/blog" class="underline underline-offset-2 decoration-dotted">Read</a> more stuff I wrote.
 					</p>
 				)}
 			</div>
