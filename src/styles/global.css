@@ -2,6 +2,9 @@
 
 @font-face {
     font-family: 'brunswick-grotesque';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
     src: url('/fonts/brunswickgrotesque/BrunswickGrotesque-Regular-75613181.woff2') format('woff2');
 }
 
@@ -12,5 +15,5 @@
 
 body {
     font-family: var(--font-family);
-    font-size: 15px;
+
 }
