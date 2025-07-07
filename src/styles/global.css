@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'brunswick-grotesque';
+    src: url('/fonts/brunswickgrotesque/BrunswickGrotesque-Regular-75613181.woff2') format('woff2');
+}
+
+:root {
+    --font-family: 'brunswick-grotesque', sans-serif;
+    --font-size: 14px;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 15px;
+}
