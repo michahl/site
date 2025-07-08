@@ -129,17 +129,7 @@ const blog = [
 						<div class="mb-4">
 							<div class="flex items-center gap-3">
 								<a href={post.url} class="underline underline-offset-2 decoration-dotted">{post.title}</a>
-								{ post.tags && post.tags.length > 0 && (
-									<div>
-										{
-											post.tags.map((tag) => (
-												<a href={`/blog/tags/${tag}`} class="inline-block bg-neutral-100/80 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-600 px-3 rounded-full text-[0.7rem] mr-1">
-													{tag}
-												</a>
-											)).slice(0, 3)
-										}
-									</div>
-								)}
+								
 							</div>
 							<p class="text-neutral-400">{post.description}</p>
 						</div>
